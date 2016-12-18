@@ -1,0 +1,26 @@
+@(person: Form[CreateAddressForm])(implicit messages: Messages)
+
+@import helper._
+
+@main("Final project James Hagans") {
+   <script type="text/javascript" src="@routes.Assets.at("javascripts/index.js")"></script>
+
+
+    <h2> Address Book Application with Ajax Made with Play Framework</h2>
+
+    <ul id="addresses"></ul>
+
+    @form(routes.AddressController.addAddress()) {
+        @inputText(person("First Name"))
+        @inputText(person("Last Name"))
+        @inputText(person("Street"))
+        @inputText(person("City"))
+        @inputText(person("State"))
+        @inputText(person("Zip"))
+        @inputText(person("Telephone"))
+
+        <div class="buttons">
+            <input type="submit" value="Add An Entry"/>
+        </div>
+    }
+}
