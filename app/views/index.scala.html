@@ -2,13 +2,15 @@
 
 @import helper._
 
-@main("Address Book") {
-   <script type="text/javascript" src="@routes.Assets.at("javascripts/index.js")"></script>
 
+@main("Final project James Hagans") {
+   <script type="text/javascript" src="@routes.Assets.at("javascripts/index.js")"></script>
 
     <h2> Address Book Application with Ajax Made with Play Framework</h2>
 
-    <ul id="addresses"></ul>
+    <ul id="addresses" class="addresses"></ul>
+
+    <button type="button" onclick="readAddresses()">Read</button>
 
     @form(routes.AddressController.addAddress()) {
         @inputText(person("First Name"))
@@ -20,7 +22,7 @@
         @inputText(person("Telephone"))
 
         <div class="buttons">
-            <input type="submit" value="Add An Entry"/>
+            <input id="create" type="submit" value="Create An Entry"/>
         </div>
     }
 }

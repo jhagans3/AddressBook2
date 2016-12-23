@@ -41,6 +41,10 @@ class AddressRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(impl
   }
 
   def list(): Future[Seq[Address]] = db.run {
-    addresses.result
+    addresses.sortBy(_.id.desc).result
+  }
+
+  def selectId(id: Long): Future[Seq[Address]] = db.run {
+    addresses.filter(_.id === id).result
   }
 }
